@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": "google",
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "parser": "babel-eslint"
+  },
+  "plugins": ["html", "vue"],
+  "rules": {
+    "no-new": "off",
+    "quotes": [1, "single"],
+    "require-jsdoc": [
+      2,
+      {
+        "require": {
+          "FunctionDeclaration": false,
+          "MethodDefinition": false,
+          "ClassDeclaration": false
+        }
+      }
+    ]
+  }
+}
