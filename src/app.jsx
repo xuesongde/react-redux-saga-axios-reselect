@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import _ from "lodash";
+
 import configureStore from "./redux/store";
 import App from "./containers/app/App";
 

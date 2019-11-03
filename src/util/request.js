@@ -19,10 +19,9 @@ export const request = async function({ type, url, data, option = {} }) {
   if (!_.isEmpty(option)) {
     axiosOption = _.merge(axiosOption, option);
   }
-  console.log(axiosOption);
   try {
-    const response = await instance(axiosOption);
-    console.log(response);
+    const { data } = await instance(axiosOption);
+    return data;
   } catch (error) {
     console.error(error);
   }

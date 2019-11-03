@@ -4,7 +4,7 @@ module.exports = function(app) {
     proxy("/mock/599fe56cbd4203191f535ed9", {
       target: "https://www.easy-mock.com",
       changeOrigin: true,
-      rejectUnauthorized: false
+      secure: false
     })
   );
 };

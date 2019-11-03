@@ -3,7 +3,7 @@
  * @desc getComment
  */
 import { request } from "../../util/request";
-import { all, delay, put, takeLatest } from "redux-saga/effects";
+import { all, delay, put, takeLatest, call } from "redux-saga/effects";
 
 import * as Actions from "../actions";
 
@@ -12,8 +12,9 @@ import * as Actions from "../actions";
  */
 export function* getComment(payload) {
   try {
-    yield delay(1000);
-    request({
+    // yield delay(1000);
+    console.log("....");
+    const comments = yield call(request, {
       type: "get",
       url: "/xsd/userList",
       data: {},
@@ -21,7 +22,8 @@ export function* getComment(payload) {
         timeout: 0
       }
     });
-    const comments = ["This is one", "This is two"];
+    console.log(comments);
+    // const comments = ["This is one", "This is two"];
     const personInfo = {
       name: "xsd",
       gender: "male"
@@ -31,6 +33,7 @@ export function* getComment(payload) {
       payload: { comments, personInfo }
     });
   } catch (error) {
+    console.log(error);
     /* istanbul ignore next */
     yield put({
       type: Actions.GET_COMMENTS_FAILURE,

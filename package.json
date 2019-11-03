@@ -3,7 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://www.easy-mock.com",
+  "babel": {
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
+      ]
+    ]
+  },
   "dependencies": {
+    "antd": "^3.24.3",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "http-proxy-middleware": "^0.20.0",
