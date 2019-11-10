@@ -13,9 +13,11 @@ class App extends React.Component {
     this.showSpining = this.showSpining.bind(this);
   }
   showSpining() {
-    setSpinstate({ spinning: true });
+    const { setSpinstate } = this.props;
+    setSpinstate({ isSpining: true });
   }
   sendRequest = () => {
+    const { getComment } = this.props;
     getComment("abc");
   };
   componentWillMount() {
@@ -36,7 +38,7 @@ class App extends React.Component {
             </Col>
             <Col>
               <Button variant="primary" onClick={this.showSpining}>
-                send request to change redux store
+                show Spining
               </Button>
             </Col>
           </Row>

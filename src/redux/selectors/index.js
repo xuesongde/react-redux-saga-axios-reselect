@@ -1,7 +1,9 @@
-import userComment from './userComment'
+import userComment from "./userComment";
+import globalSelector from "./globalSelector";
 
 const selectors = {
-	...userComment,
-}
+  ...userComment,
+  ...globalSelector
+};
 
-export default selectors
+export default selectors;

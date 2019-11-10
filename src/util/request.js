@@ -1,5 +1,7 @@
 import axios from "axios";
 import _ from "lodash";
+import store from "../redux/store/index";
+import * as Actions from "../redux/actions";
 
 const header = {};
 const instance = axios.create({
@@ -11,6 +13,10 @@ const instance = axios.create({
   }
 });
 export const request = async function({ type, url, data, option = {} }) {
+  store.dispatch({
+    type: Actions.GET_GLOBAL_SPIN_STATE,
+    payload: { isSpining: true }
+  });
   let axiosOption = {
     method: type,
     url: url,
@@ -21,6 +27,10 @@ export const request = async function({ type, url, data, option = {} }) {
   }
   try {
     const { data } = await instance(axiosOption);
+    store.dispatch({
+      type: Actions.GET_GLOBAL_SPIN_STATE,
+      payload: { isSpining: false }
+    });
     return data;
   } catch (error) {
     console.error(error);

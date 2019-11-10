@@ -5,6 +5,16 @@
     "ecmaFeatures": {}
   },
   "rules": {
+    "comma-dangle": [
+      "warning",
+      {
+        "arrays": "always",
+        "objects": "always",
+        "imports": "always",
+        "exports": "always",
+        "functions": "always"
+      }
+    ],
     "constructor-super": 2,
     "for-direction": 2,
     "getter-return": 2,
