@@ -9,7 +9,6 @@ import { Spin } from "antd";
 class Routers extends Component {
   render() {
     const { spinStatus } = this.props;
-    console.log(spinStatus);
     return (
       <Spin tip="Loading..." delay={400} spinning={spinStatus} size="large">
         <Router>
@@ -31,4 +30,3 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(mapStateToProps)(Routers);
-// export default Root;
