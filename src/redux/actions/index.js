@@ -4,6 +4,8 @@ export const GET_COMMENTS_FAILURE = "GET_COMMENTS_FAILURE";
 
 export const GET_GLOBAL_SPIN_STATE = "GET_GLOBAL_SPIN_STATE";
 
+export const GET_GLOBAL_ERROR_MESSAGE = "GET_GLOBAL_ERROR_MESSAGE";
+
 // export const fetchUserInfo = (username) => (
 //     {
 //         type: FETCH_USER_INFO,

@@ -1,7 +1,11 @@
-import { GET_GLOBAL_SPIN_STATE } from "../actions/index";
+import {
+  GET_GLOBAL_SPIN_STATE,
+  GET_GLOBAL_ERROR_MESSAGE
+} from "../actions/index";
 
 const initialState = {
-  globalState: { isSpining: false }
+  globalState: { isSpining: false },
+  errorMessage: {}
 };
 
 const globalReducer = (state = initialState, action) => {
@@ -13,6 +17,11 @@ const globalReducer = (state = initialState, action) => {
       return {
         ...state,
         globalState: { ...payload }
+      };
+    case GET_GLOBAL_ERROR_MESSAGE:
+      return {
+        ...state,
+        errorMessage: { ...payload }
       };
     default:
       return state;

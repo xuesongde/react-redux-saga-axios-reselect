@@ -36,7 +36,7 @@ export function* getComment(payload) {
     console.log(error);
     /* istanbul ignore next */
     yield put({
-      type: Actions.GET_COMMENTS_FAILURE,
+      type: Actions.GET_GLOBAL_ERROR_MESSAGE,
       payload: error
     });
   }

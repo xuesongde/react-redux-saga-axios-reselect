@@ -4,11 +4,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Selectors from "./redux/selectors";
 import App from "./containers/app/App";
-import { Spin } from "antd";
+import { Spin, message } from "antd";
+import _ from "lodash";
 
 class Routers extends Component {
+  componentWillReceiveProps(nextProps) {
+    const { globalErrorMsg } = nextProps;
+    console.log(nextProps);
+    if (!_.isEmpty(globalErrorMsg)) {
+      const { status, statusText } = globalErrorMsg;
+      message.error(`error code：${status}，error info: ${statusText}`);
+    }
+  }
   render() {
-    const { spinStatus } = this.props;
+    const { spinStatus, globalErrorMsg } = this.props;
     return (
       <Spin tip="Loading..." delay={400} spinning={spinStatus} size="large">
         <Router>
@@ -25,7 +34,8 @@ class Routers extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    spinStatus: Selectors.getSpinStatus(state)
+    spinStatus: Selectors.getSpinStatus(state),
+    globalErrorMsg: Selectors.getErrorMessage(state)
   };
 };
 
